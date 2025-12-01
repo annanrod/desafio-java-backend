@@ -1,0 +1,1 @@
+ALTER TABLE veiculo ALTER COLUMN fipe_price TYPE varchar(50);

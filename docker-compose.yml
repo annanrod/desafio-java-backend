@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: desafio_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: desafio
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - desafio-net
+
+  rabbitmq:
+    image: rabbitmq:3.12-management
+    container_name: desafio_rabbitmq
+    restart: always
+    environment:
+      RABBITMQ_DEFAULT_USER: admin
+      RABBITMQ_DEFAULT_PASS: admin
+    ports:
+      - "5672:5672"     # Porta usada pela aplicação
+      - "15672:15672"   # Painel do RabbitMQ
+    networks:
+      - desafio-net
+
+volumes:
+  postgres_data:
+
+networks:
+  desafio-net:

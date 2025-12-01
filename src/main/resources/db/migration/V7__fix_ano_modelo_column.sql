@@ -1,0 +1,1 @@
+ALTER TABLE veiculo ALTER COLUMN year_model TYPE varchar(50);
