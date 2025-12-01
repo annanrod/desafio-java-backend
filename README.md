@@ -41,7 +41,7 @@ Para não comprometer a estabilidade do projeto principal, a implementação da 
 
 ## Tecnologias Utilizadas
 
-* Java 11
+* Java 21
 * Spring Boot
 * Spring Data JPA
 * PostgreSQL
