@@ -1,9 +1,8 @@
-package com.anna.power.desafio_java_backend.business;
+package com.anna.power.desafio_java_backend.service;
 
 import com.anna.power.desafio_java_backend.domain.enums.StatusUsuario;
 import com.anna.power.desafio_java_backend.infrastructure.entities.Usuario;
 import com.anna.power.desafio_java_backend.infrastructure.repository.UsuarioRepository;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;

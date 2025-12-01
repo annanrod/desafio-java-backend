@@ -1,7 +1,7 @@
 package com.anna.power.desafio_java_backend.controller;
 
-import com.anna.power.desafio_java_backend.business.UsuarioService;
-import com.anna.power.desafio_java_backend.business.VeiculoService;
+import com.anna.power.desafio_java_backend.service.UsuarioService;
+import com.anna.power.desafio_java_backend.service.VeiculoService;
 import com.anna.power.desafio_java_backend.infrastructure.entities.Usuario;
 import com.anna.power.desafio_java_backend.infrastructure.entities.Veiculo;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/usuarios")
 @RequiredArgsConstructor
 public class UsuarioController {
 

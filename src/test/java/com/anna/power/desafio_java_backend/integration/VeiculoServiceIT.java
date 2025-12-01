@@ -1,7 +1,7 @@
 package com.anna.power.desafio_java_backend.integration;
 
-import com.anna.power.desafio_java_backend.business.VeiculoService;
-import com.anna.power.desafio_java_backend.business.UsuarioService;
+import com.anna.power.desafio_java_backend.service.VeiculoService;
+import com.anna.power.desafio_java_backend.service.UsuarioService;
 import com.anna.power.desafio_java_backend.domain.enums.StatusUsuario;
 import com.anna.power.desafio_java_backend.infrastructure.client.FipeClient;
 import com.anna.power.desafio_java_backend.infrastructure.entities.Brand;

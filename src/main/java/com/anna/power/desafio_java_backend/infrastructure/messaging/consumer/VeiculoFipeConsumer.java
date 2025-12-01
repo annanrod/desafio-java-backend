@@ -23,7 +23,7 @@ public class VeiculoFipeConsumer {
 //    @RabbitListener(queues = "vehicle.queue")
     public void processar(VehicleCreatedEvent evento) {
 
-        log.info("📩 Mensagem recebida: {}", evento);
+        log.info("Mensagem recebida: {}", evento);
 
         Veiculo veiculo = veiculoRepository.findById(evento.getVehicleId())
                 .orElseThrow(() -> new RuntimeException("Veículo não encontrado para atualização FIPE."));
@@ -36,13 +36,13 @@ public class VeiculoFipeConsumer {
         );
 
         if (precoFipe == null || precoFipe.get("price") == null) {
-            log.error("❌ Erro ao consultar FIPE.");
+            log.error("Erro ao consultar FIPE.");
             return;
         }
 
 //        veiculo.setFipePrice(new BigDecimal(precoFipe.get("price").toString()));
 //        veiculoRepository.save(veiculo);
 
-        log.info("✅ FIPE atualizada automaticamente para o veículo {}", veiculo.getPlate());
+        log.info("FIPE atualizada automaticamente para o veículo {}", veiculo.getPlate());
     }
 }

@@ -1,5 +1,6 @@
 package com.anna.power.desafio_java_backend.infrastructure.client;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;
@@ -14,8 +15,8 @@ public class FipeClient {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
-    private static final String apiKey =
-            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJlMWM0OGNiMS1iODZjLTQxYjItYmY4NC0zNjYyZmRkZTZjNzEiLCJlbWFpbCI6ImFubmFic25zc0BnbWFpbC5jb20iLCJpYXQiOjE3NjQ1OTMzNTR9.b_MnFw_ARMPnzOUHAOr7hzUAtkHX5cvi1zMTEspiJAo";
+    @Value("${fipe.api.key}")
+    private String apiKey;
 
     private static final String BASE_URL = "https://fipe.parallelum.com.br/api/v2";
 

@@ -1,6 +1,6 @@
 package com.anna.power.desafio_java_backend.integration;
 
-import com.anna.power.desafio_java_backend.business.UsuarioService;
+import com.anna.power.desafio_java_backend.service.UsuarioService;
 import com.anna.power.desafio_java_backend.domain.enums.StatusUsuario;
 import com.anna.power.desafio_java_backend.infrastructure.entities.Usuario;
 import com.anna.power.desafio_java_backend.infrastructure.repository.UsuarioRepository;

@@ -1,14 +1,13 @@
 package com.anna.power.desafio_java_backend.controller;
 
-import com.anna.power.desafio_java_backend.business.VeiculoService;
+import com.anna.power.desafio_java_backend.service.VeiculoService;
 import com.anna.power.desafio_java_backend.infrastructure.entities.Veiculo;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/veiculo")
+@RequestMapping("/veiculos")
 @RequiredArgsConstructor
 public class VeiculoController {
 

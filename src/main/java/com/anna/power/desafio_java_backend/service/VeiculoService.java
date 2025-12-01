@@ -1,7 +1,6 @@
-package com.anna.power.desafio_java_backend.business;
+package com.anna.power.desafio_java_backend.service;
 
 import com.anna.power.desafio_java_backend.domain.enums.StatusUsuario;
-import com.anna.power.desafio_java_backend.domain.events.VehicleCreatedEvent;
 import com.anna.power.desafio_java_backend.infrastructure.client.FipeClient;
 import com.anna.power.desafio_java_backend.infrastructure.entities.Usuario;
 import com.anna.power.desafio_java_backend.infrastructure.entities.Veiculo;
@@ -12,7 +11,6 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
-import java.math.BigDecimal;
 import java.time.Year;
 import java.util.Map;
 
@@ -36,14 +34,12 @@ public class VeiculoService {
         String anoModelo = veiculo.getYearModel();
         String yearCode = (anoModelo + tipoCombustivel);
 
-
         Map<String, Object> preco = fipeClient.buscarPrecoFipe(
                 "cars",
                 veiculo.getBrand().getFipeBrandId(),
                 veiculo.getModel().getFipeModelId(),
                 yearCode
         );
-
 
         if (preco == null || preco.get("price") == null) {
             throw new RuntimeException("Não foi possível obter o valor FIPE para o veículo.");
@@ -55,23 +51,6 @@ public class VeiculoService {
 
         repository.saveAndFlush(veiculo);
 
-        System.out.println(veiculo.getYearModel());
-        System.out.println(anoModelo);
-        System.out.println(yearCode);
-
-//        VehicleCreatedEvent evento = new VehicleCreatedEvent(
-//                veiculo.getId(),
-//                veiculo.getPlate(),
-//                veiculo.getBrand().getFipeBrandId(),
-//                veiculo.getModel().getFipeModelId(),
-//                veiculo.getYearModel()
-//        );
-//
-//        rabbitTemplate.convertAndSend(
-//                "vehicle.exchange",
-//                "vehicle.created",
-//                evento
-//        );
     }
 
     @Cacheable(value = "veiculos", key = "#plate")
